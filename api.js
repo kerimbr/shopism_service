@@ -35,7 +35,7 @@ app.use('/brands',brandsRouter);
 
 
 
-let port = 4004;
+let port = process.env.PORT || 4004;
 app.listen(port);
 console.log('API is running at '+port);
 
