@@ -24,15 +24,15 @@ router.use((request,response,next)=>{
 // });
 
 // Routers Imports
-const productsRouter = require("./Routers/ProductRouter");
-const categoryRouter = require("./Routers/CategoryRouter");
-const brandsRouter = require("./Routers/Brandsrouter");
+// const productsRouter = require("./Routers/ProductRouter");
+// const categoryRouter = require("./Routers/CategoryRouter");
+// const brandsRouter = require("./Routers/Brandsrouter");
 
 
-// Inıt. Routers
-app.use('/products',productsRouter);
-app.use('/categories',categoryRouter);
-app.use('/brands',brandsRouter);
+// // Inıt. Routers
+// app.use('/products',productsRouter);
+// app.use('/categories',categoryRouter);
+// app.use('/brands',brandsRouter);
 
 
 
