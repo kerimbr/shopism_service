@@ -1,6 +1,7 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 let cors = require('cors');
+let path = require('path');
 
 let app = express();
 let router = express.Router();
@@ -18,9 +19,9 @@ router.use((request,response,next)=>{
 
 
 // Main Route
-app.get('/',(req,res)=>{
-    return res.status(200).sendFile('./utils/mainPage.html', {root: __dirname});
-});
+// app.get('/',(req,res)=>{
+//     return res.status(200).sendFile('./utils/mainPage.html', {root: __dirname});
+// });
 
 // Routers Imports
 const productsRouter = require("./Routers/ProductRouter");
