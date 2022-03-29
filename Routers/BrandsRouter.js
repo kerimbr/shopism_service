@@ -3,7 +3,6 @@ const router = express.Router();
 
 let config = require("../DBConfig");
 const sql = require("mssql");
-const { getImageUrlWithId } = require("../utils/Utils");
 
 router.get("/", async (req, res) => {
   try {

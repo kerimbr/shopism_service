@@ -26,7 +26,7 @@ router.use((request,response,next)=>{
 // Routers Imports
  const productsRouter = require("./Routers/ProductRouter");
  const categoryRouter = require("./Routers/CategoryRouter");
-// const brandsRouter = require("./Routers/Brandsrouter");
+//const brandsRouter = require("./Routers/Brandsrouter");
 
 
 // // Inıt. Routers
