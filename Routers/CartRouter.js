@@ -104,10 +104,16 @@ router.post("/mycart",async(req,res)=>{
                 UserCart.*,
                 CartItems.product_id,
                 CartItems.quantity,
-                CartItems.price
+                CartItems.price,
+				Products.product_name,
+				Products.product_description,
+				Products.image_id,
+				Images.image_url
             From UserCart 
             INNER JOIN CartItems ON UserCart.cart_item = CartItems.cart_item_id
-            WHERE user_email = '${email}'
+            INNER JOIN Products ON CartItems.product_id = Products.product_id
+			INNER JOIN Images ON Products.image_id = Images.image_id
+			WHERE user_email = '${email}'
             `
           );
 
