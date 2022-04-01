@@ -26,13 +26,16 @@ router.use((request,response,next)=>{
 // Routers Imports
  const productsRouter = require("./Routers/ProductRouter");
  const categoryRouter = require("./Routers/CategoryRouter");
-//const brandsRouter = require("./Routers/Brandsrouter");
-
+ const brandsRouter   = require("./Routers/BrandsRouter");
+ const userRouter   = require("./Routers/UserRouter");
+ const cartRouter   = require("./Routers/CartRouter");
 
 // // Inıt. Routers
  app.use('/products',productsRouter);
  app.use('/categories',categoryRouter);
-// app.use('/brands',brandsRouter);
+ app.use('/brands',brandsRouter);
+ app.use('/user',userRouter);
+ app.use('/cart',cartRouter);
 
 
 
