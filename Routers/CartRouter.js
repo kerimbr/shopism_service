@@ -54,7 +54,7 @@ router.post("/add", async(req,res)=>{
                 `   
                 INSERT INTO UserCart (user_email, cart_item)
                     VALUES (
-                    'admin@appism.com',
+                    '${cartDetails.email}',
                     (SELECT MAX(CartItems.cart_item_id) FROM CartItems)
                            )
                 `
