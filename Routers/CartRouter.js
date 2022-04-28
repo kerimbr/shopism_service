@@ -130,5 +130,49 @@ router.post("/mycart",async(req,res)=>{
 
 
 
+router.get("/remove",async(req,res)=>{
+    return res.status(200).json({
+        message: "Örnek Body Gönderimi",
+        body:{
+            cartItemId: "{Cart Item ID}"
+        }
+    });
+})
+
+
+router.post("/remove", async(req,res)=>{
+    try {
+
+        if ( req.body.cartItemId === undefined )
+            return res.status(404).json({
+              message: "CartItemId not be null",
+            });
+        
+        let pool = await sql.connect(config);
+
+        let query1 = await pool.request().query(
+            `   
+                DELETE FROM UserCart WHERE cart_item = ${req.body.cartItemId};
+                DELETE FROM CartItems WHERE cart_item_id = ${req.body.cartItemId};
+            `
+          );
+      
+          if (query1.rowsAffected.length !== 0 ) {
+            return res.status(200).send("Removed");  
+          } else {
+            return res.status(403).send("Failed");
+          }
+
+    } catch (e) {
+        return res.status(503).json({
+            message: "API Error",
+            error: e,
+          });
+    }
+});
+
+
+
+
 
 module.exports = router;
