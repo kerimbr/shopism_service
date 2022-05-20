@@ -29,6 +29,10 @@ router.use((request,response,next)=>{
  const brandsRouter   = require("./Routers/BrandsRouter");
  const userRouter   = require("./Routers/UserRouter");
  const cartRouter   = require("./Routers/CartRouter");
+ const deliverytRouter   = require("./Routers/DeliveryRouter");
+ const addressRouter   = require("./Routers/AddressRouter");
+ const orderRouter   = require("./Routers/OrderRouter");
+
 
 // // Inıt. Routers
  app.use('/products',productsRouter);
@@ -36,6 +40,9 @@ router.use((request,response,next)=>{
  app.use('/brands',brandsRouter);
  app.use('/user',userRouter);
  app.use('/cart',cartRouter);
+ app.use('/delivery',deliverytRouter);
+ app.use('/address',addressRouter);
+ app.use('/order',orderRouter);
 
 
 

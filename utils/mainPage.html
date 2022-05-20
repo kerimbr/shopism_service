@@ -249,6 +249,26 @@
                     <br> Not: Örnek Body için bu sutünün üzerine tıklayın.</td>
             </tr>
 
+            <tr onclick="myRoute('/delivery')" >
+                <td>../delivery</td>
+                <td>GET</td>
+                <td>Tüm Kargo Firmalarını dönderir.</td>
+            </tr>
+
+            <tr onclick="myRoute('/address/0')" >
+                <td>../address/:ID</td>
+                <td>GET</td>
+                <td>Verilen ID'li Adresi Dönderir</td>
+            </tr>
+
+            <tr onclick="myRoute('/address/add')" >
+                <td>../address/add</td>
+                <td>POST</td>
+                <td>Body'e gönderilen parametrelere göre <strong>Adres Kaydı Yapar.</strong>  Başarılı ise 200 kodunu dönderir.
+                    <br> 200 kodu dışındaki tüm retcode lar başarısız işlemdir.
+                    <br> Not: Örnek Body için bu sutünün üzerine tıklayın.</td>
+            </tr>
+
         </tbody>
     </table>
 
