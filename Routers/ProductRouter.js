@@ -151,6 +151,7 @@ router.get("/:pid", async (req, res) => {
   }
 });
 
+
 router.get("/category/:cid", async (req, res) => {
   const cid = req.params.cid;
 
@@ -159,8 +160,28 @@ router.get("/category/:cid", async (req, res) => {
     let pool = await sql.connect(config);
     let productsQuery = await pool.request().query(
       `
-        SELECT * FROM Products WHERE category_id=${cid}    
-        `
+      SELECT 
+          Products.product_id,
+          Products.category_id,
+          Products.image_id,
+          Products.brand_id,
+          Products.product_name,
+          Products.product_price,
+          Products.product_description,
+          Products.product_discount_rate,
+          Categories.category_name,
+          Categories.category_image_id,
+          Brands.brand_image_id,
+          Brands.brand_name,
+          Brands.brand_description,
+          Images.image_url,
+          Images.image_description
+      FROM Products 
+          INNER JOIN Categories ON Products.category_id = Categories.category_id
+          INNER JOIN Images ON Products.image_id = Images.image_id
+          INNER JOIN Brands ON Products.brand_id = Brands.brand_id
+      WHERE Categories.category_id = ${cid};       
+      `
     );
     return res.status(200).send(productsQuery.recordsets[0]);
 
